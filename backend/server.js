@@ -24,6 +24,18 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/api", (req, res) => {
+  res.status(200).json({
+    message: "Student Grievance Management System API is running",
+    endpoints: {
+      register: "POST /api/register",
+      login: "POST /api/login",
+      grievances: "GET/POST /api/grievances",
+      search: "GET /api/grievances/search?title=your_title"
+    }
+  });
+});
+
 app.use("/api", authRoutes);
 app.use("/api/grievances", grievanceRoutes);
 

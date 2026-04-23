@@ -1,0 +1,34 @@
+{
+  "students": [
+    {
+      "name": "Aarav Sharma",
+      "email": "aarav@example.com",
+      "password": "student123"
+    },
+    {
+      "name": "Priya Verma",
+      "email": "priya@example.com",
+      "password": "student123"
+    }
+  ],
+  "grievances": [
+    {
+      "title": "Internal marks not updated",
+      "description": "My AI internal assessment marks are not visible on the student portal.",
+      "category": "Academic",
+      "status": "Pending"
+    },
+    {
+      "title": "Hostel water supply issue",
+      "description": "Water supply is irregular on the second floor of the hostel.",
+      "category": "Hostel",
+      "status": "Pending"
+    },
+    {
+      "title": "Bus route delay",
+      "description": "The morning college bus is arriving 20 minutes late every day.",
+      "category": "Transport",
+      "status": "Resolved"
+    }
+  ]
+}

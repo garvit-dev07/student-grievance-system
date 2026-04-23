@@ -1,0 +1,225 @@
+{
+  "info": {
+    "name": "Student Grievance Management System",
+    "description": "Postman collection for testing the MERN Student Grievance Management System API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000/api"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "grievanceId",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Register Student",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Aarav Sharma\",\n  \"email\": \"aarav@example.com\",\n  \"password\": \"student123\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/register",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "register"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Login Student",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"aarav@example.com\",\n  \"password\": \"student123\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Add Grievance",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Internal marks not updated\",\n  \"description\": \"My AI internal assessment marks are not visible on the student portal.\",\n  \"category\": \"Academic\",\n  \"status\": \"Pending\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/grievances",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "grievances"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get All Grievances",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/grievances",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "grievances"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Grievance By ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/grievances/{{grievanceId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "grievances",
+            "{{grievanceId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Grievance",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Internal marks not updated\",\n  \"description\": \"Marks have still not been updated after one week.\",\n  \"category\": \"Academic\",\n  \"status\": \"Resolved\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/grievances/{{grievanceId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "grievances",
+            "{{grievanceId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Grievance",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/grievances/{{grievanceId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "grievances",
+            "{{grievanceId}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Search Grievances By Title",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/grievances/search?title=marks",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "grievances",
+            "search"
+          ],
+          "query": [
+            {
+              "key": "title",
+              "value": "marks"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
